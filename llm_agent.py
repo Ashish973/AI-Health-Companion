@@ -31,7 +31,7 @@ class MentalHealthAgent:
 
         if not api_key and not model_name:
             api_key = st.secrets.get("GROQ_API_KEY")
-            model_name = st.secrets.get("MODEL_NAME")
+            model_name = st.secrets.get("LLM_MODEL")
         
         if api_key:
             self.llm = ChatGroq(temperature=0.6, groq_api_key=api_key, model_name=model_name)

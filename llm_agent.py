@@ -24,8 +24,10 @@ Retrieved Self-Care Knowledge:
 class MentalHealthAgent:
     def __init__(self):
         self.rag = MentalHealthRAG()
-        api_key = os.getenv("GROQ_API_KEY", "").strip()
-        model_name = os.getenv("LLM_MODEL", "qwen/qwen3.8-27b")
+         api_key = st.secrets["GROQ_API_KEY"]
+        model_name = st.secrets["LLM_MODEL"]
+        """api_key = os.getenv("GROQ_API_KEY", "").strip()
+        model_name = os.getenv("LLM_MODEL", "qwen/qwen3.8-27b")"""
         
         if api_key:
             self.llm = ChatGroq(temperature=0.6, groq_api_key=api_key, model_name=model_name)
